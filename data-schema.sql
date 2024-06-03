@@ -55,3 +55,24 @@ CREATE TABLE stroke_data (
 );
 
 select * from stroke_data
+
+-- Count of diabetics by age group:
+
+SELECT Age, COUNT(*) as Count
+FROM diabetes_data
+WHERE Diabetes = 1
+GROUP BY Age
+ORDER BY Age;
+
+-- average cholesterol levels by heart disease status
+
+SELECT heart_disease, AVG(chol) as Avg_Cholesterol
+FROM hypertension_data
+GROUP BY heart_disease;
+
+-- stroke incidence by smoking status
+
+SELECT smoking_status, COUNT(*) as Count
+FROM stroke_data
+WHERE stroke = 1
+GROUP BY smoking_status;
