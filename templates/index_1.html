@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Risk</title>
+    <style>
+        body {
+            background-color: #8B3030;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            background-color: #444;
+            width: 60%;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #FFF;
+        }
+        input[type="number"], select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #CCC;
+        }
+        input[type="submit"] {
+            background-color: #8B3030;
+            color: #FFF;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #722525;
+        }
+        p {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Stroke Risk</h1>
+        <form action="/output" method="POST">
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" max="110" placeholder="e.g., 25">
+
+            <label for="hypertension">Hypertension:</label>
+            <select name="hypertension" id="hypertension">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="heart-disease">Heart Disease:</label>
+            <select name="heart-disease" id="heart-disease">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="marriage">Ever Married:</label>
+            <select name="marriage" id="marriage">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+
+            <label for="residency">Residency Type:</label>
+            <select name="residency" id="residency">
+                <option value="urban">Urban Area</option>
+                <option value="rural">Rural Area</option>
+            </select>
+
+            <label for="glucose">Glucose Levels:</label>
+            <input type="number" id="glucose" name="glucose" min="0" max="300" placeholder="e.g., 100">
+
+            <label for="bmi">BMI:</label>
+            <input type="number" id="bmi" name="bmi" min="10" max="100" step="0.1" placeholder="e.g., 24.5">
+
+            <label for="smoking">Smoking Status:</label>
+            <select name="smoking" id="smoking">
+                <option value="smokes">Smokes</option>
+                <option value="never smoked">Never Smoked</option>
+            </select>
+
+            <input type="submit" value="Submit" id="output">
+            {% for message in get_flashed_messages() %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
